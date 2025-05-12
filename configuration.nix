@@ -144,10 +144,10 @@
     isNormalUser = true;
     extraGroups = ["wheel" "input" "audio" "video"];
   };
-
-  #users.users.root.hashedPassword = "!";
-  users.users.root.password = "nixos"; # If password persistence is required, uncomment this line
-  # Unexpected Behaviour may occur if both lines are uncommented
+  
+  # Root account is kept disabled for security reasons, as '!' is an impossible hash
+  # Temporary root access can be achieved either running 'sudo passwd root' or by altering the password hash
+  users.users.root.HashedPassword = "!";
 
   # Enable printing services
   # This includes the avahi zeroconf daemon
