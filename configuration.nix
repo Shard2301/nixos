@@ -368,6 +368,8 @@
     p7zip # 7zip implementation
     yt-dlp
     alejandra # Nix Code Formatter
+    imv # image viewer
+    imagemagick # cli image manipulation suite
 
     # Terminal Emulators
     ghostty
