@@ -147,7 +147,7 @@
   
   # Root account is kept disabled for security reasons, as '!' is an impossible hash
   # Temporary root access can be achieved either running 'sudo passwd root' or by altering the password hash
-  users.users.root.HashedPassword = "!";
+  users.users.root.hashedPassword = "!";
 
   # Enable printing services
   # This includes the avahi zeroconf daemon
