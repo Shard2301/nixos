@@ -432,7 +432,7 @@
 
   # Enable and configure ZSH
   # ! Essential options only for global ZSH configuration should be added here to avoid file bloat
-  # Alternatively, place configuration in ~/zsh.nix, and source it
+  # Alternatively, place configuration in zsh.nix, and source it
   programs.zsh = {
     enable = true;
     promptInit = ''
