@@ -370,6 +370,7 @@
     alejandra # Nix Code Formatter
     imv # image viewer
     imagemagick # cli image manipulation suite
+    android-tools # adb & fastboot
 
     # Terminal Emulators
     ghostty
