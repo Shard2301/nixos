@@ -376,7 +376,7 @@
     ghostty
 
     # Terminal Prompts
-    zsh-powerlevel10k
+    oh-my-posh # P10K Replacement
 
     # Notetaking
     obsidian
