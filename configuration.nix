@@ -144,7 +144,7 @@
     isNormalUser = true;
     extraGroups = ["wheel" "input" "audio" "video"];
   };
-  
+
   # Root account is kept disabled for security reasons, as '!' is an impossible hash
   # Temporary root access can be achieved either running 'sudo passwd root' or by altering the password hash
   users.users.root.hashedPassword = "!";
@@ -430,8 +430,44 @@
     ];
   };
 
-  # Enable ZSH Shell
-  programs.zsh.enable = true;
+  # Enable and configure ZSH
+  # ! Essential options only for global ZSH configuration should be added here to avoid file bloat
+  # Alternatively, place configuration in ~/zsh.nix, and source it
+  programs.zsh = {
+    enable = true;
+    promptInit = ''
+      # Initalize oh-my-posh transient shell configuration
+      eval "$(oh-my-posh init zsh --config $HOME/nix/dotfiles/oh-my-posh/zen.toml)"
+
+      # Initalize zoxide on shell load
+      eval "$(zoxide init zsh)"
+    '';
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
+    autosuggestions.enable = true;
+    autosuggestions.strategy = ["completion"];
+    enableBashCompletion = true;
+    histSize = 10000;
+    shellAliases = {
+      # Invoke lsd when calling ls and override standard aliases
+      l = "lsd -alh";
+      ll = "lsd -l";
+      ls = "lsd";
+
+      # Call zoxide when invoking the 'cd' command
+      cd = "z";
+      cdi = "zi";
+
+      # Invoke $EDITOR with single command
+      edit = "$EDITOR";
+    };
+    setOptions = [
+      "AUTO_CD"
+      "HIST_IGNORE_DUPS"
+      "SHARE_HISTORY"
+      "HIST_FCNTL_LOCK"
+    ];
+  };
 
   # Enable the GNOME Display Manager
   # This is used instead of the Cosmic Greeter, as the Cosmic Greeter is currently buggy and crash-prone
