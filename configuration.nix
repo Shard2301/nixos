@@ -55,6 +55,15 @@
     '';
   };
 
+  # Enable Plymouth boot screen
+  # ! Without a theme, Plymouth itself does nothing
+  # ! A theme package must be pulled, or a local one must be provided
+  boot.plymouth = {
+    enable = true;
+    themePackages = [pkgs.adi1090x-plymouth-themes];
+    theme = "pixels";
+  };
+
   # Enable Support for the software raid subsystem
   # By itself, this does nothing except enable mdadm
   # Raid Array info must be passed to /etc/mdadm.conf via the `boot.swraid.mdadmConf` option
