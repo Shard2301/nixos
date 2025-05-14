@@ -86,7 +86,7 @@
   # The below options optimize the Nix store to prevent /boot from filling up and breaking the build system
   # Garbage Collection is Routinely Carried out to keep the Nix Store empty as well
   nix.settings.auto-optimise-store = true;
-  boot.loader.grub.configurationLimit = 10;
+  boot.loader.grub.configurationLimit = 3;
   boot.loader.generationsDir.copyKernels = false;
 
   # Allow only root and users in the 'wheel' group low-level access to the nix daemon
@@ -320,6 +320,7 @@
     tree
     file
     power-profiles-daemon
+    android-tools # adb and fastboot
 
     # File System Tools
     btrfs-progs
@@ -379,9 +380,8 @@
     alejandra # Nix Code Formatter
     imv # image viewer
     imagemagick # cli image manipulation suite
-    android-tools # adb & fastboot
 
-    # Terminal Emulators
+    # Terminals
     ghostty
 
     # Terminal Prompts
