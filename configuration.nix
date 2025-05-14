@@ -455,9 +455,12 @@
     enableBashCompletion = true;
     histSize = 10000;
     shellAliases = {
-      # Invoke lsd when calling ls and override standard aliases
+      # Short-form aliases for common uses of ls/lsd
       l = "lsd -alh";
       ll = "lsd -l";
+      lt = "lsd --tree";
+
+      # Alias to invoke lsd whenever ls is called
       ls = "lsd";
 
       # Call zoxide when invoking the 'cd' command
