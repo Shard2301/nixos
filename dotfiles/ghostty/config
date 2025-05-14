@@ -1,8 +1,0 @@
-# Set default shell to ZSH
-command = zsh
-
-# Set font to MesloLGF NF Patched
-font-family = "MesloLGS NF"
-
-# Set font size to a reasonable value
-font-size = 14.5
