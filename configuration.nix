@@ -381,9 +381,6 @@
     imv # image viewer
     imagemagick # cli image manipulation suite
 
-    # Terminals
-    ghostty
-
     # Terminal Prompts
     oh-my-posh # P10K Replacement
 
