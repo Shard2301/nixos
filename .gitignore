@@ -1,0 +1,3 @@
+## Gitignore file for nix system configuration
+# Ignore secrets directory
+secrets/
