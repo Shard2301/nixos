@@ -241,8 +241,8 @@
     enable = true;
     config = {
       init.defaultBranch = "main";
-      user.name = "Commodore3193";
-      user.email = "lindleyjohn@protonmail.ch";
+      user.name = "crash-dump";
+      user.email = "github@crashdump.8shield.net";
       advice.addignoredfile = false; # Supresses the irritating warnings when using a .gitignore file
     };
   };
@@ -403,8 +403,9 @@
     itch # Itch.io games
     lutris # For non-steam games
 
-    # Security/Privacy
+    # Password Managers
     bitwarden
+    proton-pass
 
     # Email Client(s)
     protonmail-desktop
