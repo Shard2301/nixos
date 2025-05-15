@@ -470,6 +470,10 @@
 
       # Invoke $EDITOR with single command
       edit = "$EDITOR";
+
+      # Alias to shortern the use of the 'realpath' command and provide a convient shorthand
+      rp = "realpath";
+      rpc = "realpath ."; # Always prints the true path of the current working directory
     };
     setOptions = [
       "AUTO_CD"
