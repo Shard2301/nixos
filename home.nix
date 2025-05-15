@@ -31,4 +31,12 @@
 
   # Enable the Syncthing user-level service
   services.syncthing.enable = true;
+
+  # Enable and configure the yt-dlp download client
+  programs.yt-dlp = {
+    enable = true;
+    extraConfig = ''
+      -o "%(title)s.%(ext)s"
+    '';
+  };
 }
