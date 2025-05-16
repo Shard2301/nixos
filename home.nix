@@ -45,7 +45,7 @@
   programs.mpv = {
     enable = true;
     config = {
-      ignore_ext = "jpg jpeg png webp"; # Prevent mpv from trying to "play" cover art
+      image-display-duration = 0;
     };
   };
 }
