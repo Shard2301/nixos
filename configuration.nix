@@ -366,7 +366,6 @@
     zoxide # Smart cd
     lsd # better 'ls' command
     clifm
-    mpv
     ffmpeg
     bat # better 'cat' command
     speedtest-cli

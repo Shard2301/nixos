@@ -37,6 +37,15 @@
     enable = true;
     extraConfig = ''
       -o "%(title)s.%(ext)s"
+      --embed-metadata
     '';
+  };
+
+  # Enable and configure mpv
+  programs.mpv = {
+    enable = true;
+    config = {
+      ignore_ext = "jpg jpeg png webp"; # Prevent mpv from trying to "play" cover art
+    };
   };
 }
