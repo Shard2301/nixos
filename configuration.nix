@@ -193,10 +193,6 @@
     '';
   };
 
-  # Ensure the Polkit Authentication Agent Launches
-  # ! You do not need this unless you use Cosmic or a WM
-  systemd.user.services.hyprpolkitagent.enable = true;
-
   # Configure Networking
   # NetworkManager is used as it is the simpliest solution and works with little futz, even for obscure network types
   # Also define a hostname. Ensure this has a matching equivalent in flake.nix
@@ -354,7 +350,6 @@
     wev # Wayland implementation of X.Org's xev command
     xdg-utils
     flatpak-xdg-utils
-    hyprpolkitagent # Standlone Qt Polkit Authentication Agent
 
     # Libraries
     libarchive
