@@ -79,14 +79,14 @@
   nix.gc = {
     automatic = true;
     persistent = true; # This ensures that Garbage Collection will be triggered, even if missed
-    dates = "weekly";
+    dates = "daily";
     randomizedDelaySec = "100min";
   };
 
   # The below options optimize the Nix store to prevent /boot from filling up and breaking the build system
   # Garbage Collection is Routinely Carried out to keep the Nix Store empty as well
   nix.settings.auto-optimise-store = true;
-  boot.loader.grub.configurationLimit = 3;
+  boot.loader.grub.configurationLimit = 2;
   boot.loader.generationsDir.copyKernels = false;
 
   # Allow only root and users in the 'wheel' group low-level access to the nix daemon
@@ -467,6 +467,12 @@
       # Alias to shortern the use of the 'realpath' command and provide a convient shorthand
       rp = "realpath";
       rpc = "realpath ."; # Always prints the true path of the current working directory
+
+      # Disable ZSH Globbing when invoking yt-dlp
+      yt-dlp = "noglob yt-dlp";
+
+      # Shorthand to invoke most commonly used options for extracting audio file and cover art
+      ytd = "noglob yt-dlp -x --write-thumbnail";
     };
     setOptions = [
       "AUTO_CD"
