@@ -15,7 +15,3 @@ If you wish to explore or utilize any of these configuration files, feel free to
 ## Contributions
 
 I appreciate any insights or suggestions, but since this repository exists for my personal use, I am unlikely to accept pull requests. If you have any improvements or modifications, feel free to fork this repository and adapt it to your needs.
-
----
-
-Enjoy exploring, and happy hacking!
