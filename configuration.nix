@@ -373,7 +373,6 @@
     alejandra # Nix Code Formatter
     imv # image viewer
     imagemagick # cli image manipulation suite
-    beets # CLI Audio Metadata Manager
 
     # Terminal Prompts
     oh-my-posh # P10K Replacement

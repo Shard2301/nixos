@@ -48,4 +48,7 @@
       image-display-duration = 0;
     };
   };
+
+  # Allow home-manager to manage beets music library and tagging
+  programs.beets.enable = true;
 }
