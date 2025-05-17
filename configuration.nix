@@ -373,6 +373,7 @@
     alejandra # Nix Code Formatter
     imv # image viewer
     imagemagick # cli image manipulation suite
+    beets # CLI Audio Metadata Manager
 
     # Terminal Prompts
     oh-my-posh # P10K Replacement
@@ -473,6 +474,9 @@
 
       # Shorthand to invoke most commonly used options for extracting audio file and cover art
       ytd = "noglob yt-dlp -x --write-thumbnail";
+
+      # Alias to fix weird naming of beets executable
+      beets = "beet";
     };
     setOptions = [
       "AUTO_CD"
