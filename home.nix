@@ -50,5 +50,17 @@
   };
 
   # Allow home-manager to manage beets music library and tagging
-  programs.beets.enable = true;
+  programs.beets = {
+    enable = true;
+    settings = {
+      # Path templates (i.e.) how to structure library
+      paths = {
+        # "Normal" (single-artist) releases go under Artist/Album/...
+        default = ''$albumartist/$album/$track $title'';
+
+        # Any release marked as a compilation goes under Compilations/...
+        comp = ''Compilations/$artists/$album/$track $title'';
+      };
+    };
+  };
 }
