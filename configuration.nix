@@ -374,9 +374,6 @@
     imv # image viewer
     imagemagick # cli image manipulation suite
 
-    # Other GUI Applications
-    picard # audio metadata management suite
-
     # Terminal Prompts
     oh-my-posh # P10K Replacement
 
