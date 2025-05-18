@@ -59,7 +59,7 @@
         default = ''$albumartist/$album/$track $title'';
 
         # Any release marked as a compilation goes under Compilations/...
-        comp = ''Compilations/$artists/$album/$track $title'';
+        comp = ''Various Artists/$artists/$album/$track $title'';
       };
     };
   };
