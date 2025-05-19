@@ -86,8 +86,9 @@
   # The below options optimize the Nix store to prevent /boot from filling up and breaking the build system
   # Garbage Collection is Routinely Carried out to keep the Nix Store empty as well
   nix.settings.auto-optimise-store = true;
-  boot.loader.grub.configurationLimit = 2;
+  boot.loader.grub.configurationLimit = 1;
   boot.loader.generationsDir.copyKernels = false;
+  boot.loader.grub.storePath = "/nix/store";
 
   # Allow only root and users in the 'wheel' group low-level access to the nix daemon
   nix.settings.trusted-users = ["root" "john"];
