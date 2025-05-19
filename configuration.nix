@@ -410,6 +410,10 @@
     libreoffice-qt6-fresh # Main version is broken, constantly crashes
     onlyoffice-desktopeditors
 
+    # CD Ripping Software
+    asunder
+    whipper # cli implementation, probably better on uncooperative discs
+
     # Libraries
     jre8 # Java Runtime
   ];
