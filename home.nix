@@ -53,12 +53,15 @@
   programs.beets = {
     enable = true;
     settings = {
-      # Path templates (i.e.) how to structure library
+      # Enable the 'fromfilename' plugin
+      plugins = ["fromfilename"];
+
+      # Path templates (i.e., how to structure library)
       paths = {
         # "Normal" (single-artist) releases go under Artist/Album/...
         default = ''$albumartist/$album/$track $title'';
 
-        # Any release marked as a compilation goes under Compilations/...
+        # Any release marked as a compilation goes under Various Artists/...
         comp = ''Various Artists/$artists/$album/$track $title'';
       };
     };
