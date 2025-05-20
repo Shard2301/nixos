@@ -238,8 +238,8 @@
     enable = true;
     config = {
       init.defaultBranch = "main";
-      user.name = "crash-dump";
-      user.email = "github@crashdump.8shield.net";
+      user.name = "Shard2301";
+      user.email = "github.iryk9@slmails.com";
       advice.addignoredfile = false; # Supresses the irritating warnings when using a .gitignore file
     };
   };
@@ -374,6 +374,9 @@
     alejandra # Nix Code Formatter
     imv # image viewer
     imagemagick # cli image manipulation suite
+
+    # Terminal Emulators
+    waveterm
 
     # Terminal Prompts
     oh-my-posh # P10K Replacement
