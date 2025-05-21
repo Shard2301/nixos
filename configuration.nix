@@ -265,7 +265,7 @@
   # This includes things such as fonts, language, keyboard layout, etc.
   # Options may be overriden indepently by other options in userspace when needed
   i18n.defaultLocale = "en_NZ.UTF-8";
-  i18n.extraLocales = ["en_US.UTF-8"]; # Steam may break without this
+  i18n.extraLocales = ["en_US.UTF-8/UTF-8"]; # Steam may break without this
 
   # Configure options for TTY Consoles
   # This primarily configures the font package used for better readability
