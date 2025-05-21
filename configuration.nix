@@ -318,6 +318,7 @@
     file
     power-profiles-daemon
     android-tools # adb and fastboot
+    mesa-demos # Mesa Tools, e.g. glxinfo
 
     # File System Tools
     btrfs-progs
