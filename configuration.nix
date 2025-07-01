@@ -418,6 +418,7 @@
     # CD Ripping Software
     asunder
     whipper # cli implementation, probably better on uncooperative discs
+    abcde # basic cli implementation
 
     # Libraries
     jre8 # Java Runtime
@@ -499,6 +500,7 @@
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true; # enable gnome because cosmic is stupid and buggy and stuff
   };
 
   # Enable the Cosmic Desktop
