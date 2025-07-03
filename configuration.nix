@@ -31,7 +31,7 @@
   # Define Extra/Additional Kernel Parameters here
   # These are not kernel configuration options
   # Rather, they are runtime parameters passed to the kernel on each boot
-  boot.kernelParams = ["ipv6.disable=1" "mem_sleep_default=s2idle"];
+  boot.kernelParams = ["ipv6.disable=1" "mem_sleep_default=s2idle" "nvme_core.default_ps_max_latency_us=0"];
 
   # Enable EFI Support
   # ! This must be enabled for the system to boot
@@ -226,10 +226,26 @@
   # Enable the firmware-updater daemon for managing compatible devices
   services.fwupd.enable = true;
 
+  # Force usage of pkgs.x11_ssh_askpass
+  programs.ssh.askPassword = lib.mkForce "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass";
+
   # Enable the GNUPG Agent
   # This is required for various forms of authentication
   # Some software may break without it
   programs.gnupg.agent.enable = true;
+
+  # Prevent GNUPG from breaking pcscd
+  hardware.gpgSmartcards.enable = false;
+  programs.gnupg.agent.settings = {
+    disable-scdaemon = true;
+  };
+
+  # Enable PCSCD (Smart Card, i.e. Yubikey) Daemon
+  services.pcscd.enable = true;
+
+  # Enable Yubikey Agent
+  # Enable if system fails to recogonize Yubikey
+  #services.yubikey-agent.enable = true;
 
   # Configure git
   # By default, git will complain if invoked without configuring it
@@ -405,6 +421,9 @@
     bitwarden
     proton-pass
 
+    # Security Key Integration Software
+    yubioath-flutter
+
     # Email Client(s)
     protonmail-desktop
 
@@ -495,20 +514,10 @@
     ];
   };
 
-  # Enable the GNOME Display Manager
-  # This is used instead of the Cosmic Greeter, as the Cosmic Greeter is currently buggy and crash-prone
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true; # enable gnome because cosmic is stupid and buggy and stuff
-  };
+  # Enable Legacy Xserver
+  services.xserver.enable = true;
 
-  # Enable the Cosmic Desktop
-  # This is a monolithic package for the cosmic desktop, bundling everything in one
-  # Additionally, the cosmic greeter is force-disabled due to stability issues (see above)
-  services.desktopManager.cosmic = {
-    enable = true;
-    xwayland.enable = true;
-  };
-  services.displayManager.cosmic-greeter.enable = false;
+  # Enable GNOME Greeter and Desktop Environment
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 }
