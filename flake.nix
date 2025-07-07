@@ -25,7 +25,7 @@
     pkgs = "nixpkgs.legacyPackages.${system}";
     pkgs-old = "nixpkgs-old.legacyPackages.${system}";
   in {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs system;};
       modules = [
         ./configuration.nix
