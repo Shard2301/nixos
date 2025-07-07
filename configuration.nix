@@ -11,12 +11,12 @@
   # ! Doing this will overwrite any manual changes made to the file
   imports = [./hardware-configuration.nix];
 
-  # Lock System State Version to 24.11
+  # Lock System State Version to 25.05
   # ! Not locking the version can result in link failures, compilation errors, and general misbehaviour
   # ! This results from when packages and/or bundled dependencies are shipped with different versions, potentially leading to data loss
   # !!! Unless specifically instructed to, never change this value
   # !!! This is not the version of your system; that is managed by flake.nix
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 
   # Use latest version of the Xanmod Kernel
   # Optionally, switch to zen if issues are encountered
@@ -102,9 +102,6 @@
   # These packages are likely dependencies for another package that rely on their featureset still
   # ! Do not add a package to here unless you are absolutely sure you need to
   nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w"];
-
-  # Ensure data integrity and health by running 'btrfs scrub' at set intervals
-  services.btrfs.autoScrub.enable = true;
 
   # Periodicially empty SSD Cache to prevent system slowdown
   services.fstrim.enable = true;
@@ -337,7 +334,6 @@
     mesa-demos # Mesa Tools, e.g. glxinfo
 
     # File System Tools
-    btrfs-progs
     dosfstools
     e2fsprogs
 
@@ -466,7 +462,7 @@
     enable = true;
     promptInit = ''
       # Initalize oh-my-posh transient shell configuration
-      eval "$(oh-my-posh init zsh --config $HOME/nix/dotfiles/oh-my-posh/zen.toml)"
+      eval "$(oh-my-posh init zsh --config $HOME/nixos/dotfiles/oh-my-posh/zen.toml)"
 
       # Initalize zoxide on shell load
       eval "$(zoxide init zsh)"
