@@ -511,11 +511,6 @@
   services.xserver.enable = true;
 
   # Enable GNOME Greeter and Desktop Environment
-  # ! GDM is currently disabled due to login bugs as of 2025-07-07
-  #services.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-
-  # Enable LightDM Display Manager
-  # ! Will not function if services.xserver.enable has been set to false
-  services.xserver.displayManager.lightdm.enable = true;
 }
