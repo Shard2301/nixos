@@ -113,7 +113,7 @@
     enable = true;
     priority = 100; # Ensures that zram is used over standard swapspace unless full
     algorithm = "zstd";
-    writebackDevice = "/dev/disk/by-label/zram_offload";
+    writebackDevice = "/dev/disk/by-path/pci-0000:05:00.0-nvme-1-part2";
   };
 
   # Enable Hardware Graphics Stack

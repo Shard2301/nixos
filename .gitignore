@@ -1,6 +1,3 @@
 ## Gitignore file for nix system configuration
 # Ignore secrets directory
 secrets/
-
-# Ignore hardware configuration file
-hardware-configuration.nix
