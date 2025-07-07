@@ -393,7 +393,7 @@
 
     # Terminal Prompts
     oh-my-posh # P10K Replacement
-
+ 
     # Notetaking
     obsidian
     obsidian-export # For exporting Vault to markdown files
