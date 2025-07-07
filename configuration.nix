@@ -59,9 +59,9 @@
   # ! Without a theme, Plymouth itself does nothing
   # ! A theme package must be pulled, or a local one must be provided
   boot.plymouth = {
-    enable = true;
-    themePackages = [pkgs.adi1090x-plymouth-themes];
-    theme = "pixels";
+    enable = false;
+    #themePackages = [pkgs.adi1090x-plymouth-themes];
+    #theme = "pixels";
   };
 
   # Enable Support for the software raid subsystem
