@@ -86,7 +86,7 @@
   # The below options optimize the Nix store to prevent /boot from filling up and breaking the build system
   # Garbage Collection is Routinely Carried out to keep the Nix Store empty as well
   nix.settings.auto-optimise-store = true;
-  boot.loader.grub.configurationLimit = 1;
+  boot.loader.grub.configurationLimit = 10;
   boot.loader.generationsDir.copyKernels = false;
   boot.loader.grub.storePath = "/nix/store";
 
@@ -113,7 +113,7 @@
     enable = true;
     priority = 100; # Ensures that zram is used over standard swapspace unless full
     algorithm = "zstd";
-    writebackDevice = "/dev/disk/by-partlabel/zramOffload";
+    writebackDevice = "/dev/disk/by-label/zram_offload";
   };
 
   # Enable Hardware Graphics Stack
