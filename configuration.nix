@@ -515,12 +515,7 @@
   #services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  # Manage lightdm settings
-  # LightDM is multi-faceted, so it has been given its own section
+  # Enable LightDM Display Manager
   # ! Will not function if services.xserver.enable has been set to false
-  services.xserver.displayManager.lightdm = {
-    enable = true;
-    greeters.slick.enable = true;
-    greeters.gtk.enable = false; # Prevent greeter overlap
-  };
+  services.xserver.displayManager.lightdm.enable = true;
 }
