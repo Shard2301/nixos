@@ -10,7 +10,7 @@
     path = [pkgs.bash pkgs.duplicacy pkgs.libnotify];
     serviceConfig = {
       WorkingDirectory = "/home/john";
-      ExecStart = "/home/john/bin/duplicacy.sh";
+      ExecStart = "/home/john/bin/scripts/duplicacy.sh";
     };
     wantedBy = ["default.target"];
   };
@@ -21,7 +21,7 @@
     path = [pkgs.bash pkgs.rclone pkgs.libnotify];
     serviceConfig = {
       WorkingDirectory = "/home/john";
-      ExecStart = "/home/john/bin/rclone.sh";
+      ExecStart = "/home/john/bin/scripts/rclone.sh";
     };
     wantedBy = ["default.target"];
   };
