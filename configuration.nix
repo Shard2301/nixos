@@ -28,10 +28,15 @@
   # This reduces the chance of issues with bleeding edge hardware not functioning due to missing drivers
   hardware.firmware = [pkgs.linux-firmware];
 
+  # Use kyber scheduler
+  # NixOS by default uses none, which can lead to performance issues
+  # ? Kyber is specifically designed for high-speed NVMe devices
+  hardware.block.scheduler = { "nvme[0-9]*" = "kyber"; };
+
   # Define Extra/Additional Kernel Parameters here
   # These are not kernel configuration options
   # Rather, they are runtime parameters passed to the kernel on each boot
-  boot.kernelParams = ["ipv6.disable=1" "mem_sleep_default=s2idle" "nvme_core.default_ps_max_latency_us=0"];
+  boot.kernelParams = ["ipv6.disable=1" "mem_sleep_default=s2idle" "nvme_core.default_ps_max_latency_us=0" "nvme.noacpi=1"];
 
   # Enable EFI Support
   # ! This must be enabled for the system to boot
