@@ -42,31 +42,13 @@
   # ! This must be enabled for the system to boot
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use the GRand Unified Bootloader (GRUB)
-  # systemd-boot is still in infancy and does not have a clean way to interact with Generations
-  boot.loader.grub = {
+  # Use systemd-boot
+  boot.loader.systemd-boot = {
     enable = true;
     memtest86.enable = true;
-    device = "nodev"; # Prevents GRUB from installing to the header of the block device, which breaks EFI installations
-    efiSupport = true;
-    extraEntries = ''
-      menuentry "Shutdown" {
-      	halt
-      }
-
-      menuentry "Reboot to Firmware Interface" {
-      	fwsetup
-      }
-    '';
-  };
-
-  # Enable Plymouth boot screen
-  # ! Without a theme, Plymouth itself does nothing
-  # ! A theme package must be pulled, or a local one must be provided
-  boot.plymouth = {
-    enable = false;
-    #themePackages = [pkgs.adi1090x-plymouth-themes];
-    #theme = "pixels";
+    edk2-uefi-shell.enable = true;
+    editor = false; # For security; prevents passing init=/bin/sh as kernel parameter
+    configurationLimit = 10;
   };
 
   # Enable Support for the software raid subsystem
@@ -91,9 +73,6 @@
   # The below options optimize the Nix store to prevent /boot from filling up and breaking the build system
   # Garbage Collection is Routinely Carried out to keep the Nix Store empty as well
   nix.settings.auto-optimise-store = true;
-  boot.loader.grub.configurationLimit = 10;
-  boot.loader.generationsDir.copyKernels = false;
-  boot.loader.grub.storePath = "/nix/store";
 
   # Allow only root and users in the 'wheel' group low-level access to the nix daemon
   nix.settings.trusted-users = ["root" "john"];
@@ -199,7 +178,7 @@
   # Configure Networking
   # NetworkManager is used as it is the simpliest solution and works with little futz, even for obscure network types
   # Also define a hostname. Ensure this has a matching equivalent in flake.nix
-  networking.hostName = "nixos-desktop";
+  networking.hostName = "nixos"; # Stanard hostname, give specialized hosts a unique name
   networking.networkmanager = {
     enable = true;
     plugins = [pkgs.networkmanager-openconnect];
