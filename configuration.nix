@@ -42,7 +42,8 @@
   # ! This must be enabled for the system to boot
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use systemd-boot
+  # Use the new-generation systemd-boot bootloader
+  # ? systemd-boot is preferred due to retainability when updating UEFI and ease of use
   boot.loader.systemd-boot = {
     enable = true;
     memtest86.enable = true;
