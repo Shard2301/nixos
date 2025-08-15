@@ -132,7 +132,7 @@
   # Root account is kept disabled for security reasons, as '!' is an impossible hash
   # If needed for debugging, running 'passwd root' will provide temporary access
   users.users.john = {
-    hashedPassword = "$6$8VjsfK7V$11teFAqZ9ijQr5L7uDKQlP/ZDOiO78jNOyYL63F4QfSI2U/3uiHqy0599s3BzHgc3HtLwSdkRgobjfbd62Xyq/";
+    # TODO: Add value 'users.users.john.hashedPassword to /secrets/passwords.nix and import
     isNormalUser = true;
     extraGroups = ["wheel" "input" "audio" "video"];
   };
